@@ -1,0 +1,41 @@
+<link rel="import" href="../paper-dialog/paper-dialog.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<!-- 
+`<survey-input on-add-badge="addSurvey"></survey-input>`
+-->
+<dom-module id="survey-input">
+  <template>
+    <paper-button on-tap="add">Add</paper-button>
+    <paper-dialog>
+      <paper-input value="{{surveyQ::change}}" label="Question"></paper-input>
+      <div class="buttons">
+        <paper-button dialog-confirm on-tap="_add">Add</paper-button>
+        <paper-button dialog-dismiss>Cancel</paper-button>
+      </div>
+    </paper-dialog>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'survey-input',
+    // Listen for ENTER key
+    _checkAdd: function(e) {
+      if (e.keyCode === 13) {
+        this._add();
+      }
+    },
+    _add: function() {
+      if (this.surveyQ) {
+        this.fire('add-survey', {
+          Q: this.surveyQ
+        });
+        this.surveyQ = null;
+        this.$$('paper-dialog').close();
+      }
+    },
+    add: function() {
+      this.$$('paper-dialog').open();
+    }
+  });
+</script>

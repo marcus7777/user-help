@@ -1,0 +1,47 @@
+<link rel="import" href="survey-item.html">
+<link rel="import" href="../sortable-list/sortable-list.html">
+<!--
+`<surveys-list surveys="{{surveys}}" on-delete-surveys="deleteSurvey"></surveys-list>`
+-->
+<dom-module id="surveys-list">
+  <template>
+    <template is="dom-if" if="{{edit}}">
+      <sortable-list style="display: inline-block">
+        <template is="dom-repeat" items="{{surveys}}">
+          <div><survey-item edit survey="{{item}}"></survey-item></div>
+        </template>
+      </sortable-list>
+    </template>
+    <template is="dom-if" if="{{answer}}">
+      <sortable-list style="display: inline-block">
+        <template is="dom-repeat" items="{{surveys}}" filter="{{filterSurvey(filterBy)}}">
+          <div><survey-item index="[[index]]" answer="[[answer]]" survey="{{item}}"></survey-item></div>
+        </template>
+      </sortable-list>
+    </template>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'surveys-list',
+    properties: {
+      surveys:{notify:true},
+      filterBy:{type:String,value:"not"}
+    },
+    filterSurvey: function(filterBy) {
+      if (filterBy) {
+        // If filterBy is 'all', return a filter
+        if (filterBy === 'all') {
+          return function() {
+            return true
+          }
+        }
+        // Handle 'completed', or its inverse, 'active'
+        var ifNotComplete = !(filterBy === 'completed');
+        return function(item) {
+          return item.isComplete !== ifNotComplete;
+        };
+      }
+    }
+  });
+</script>

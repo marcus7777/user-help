@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>user-surveys demo</title>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="user-surveys.html">
+  </head>
+  <body>
+    <h3>user-surveys all</h3>
+    <user-surveys edit edit-default answer folder="marcus7777" location="https://open-elements.firebaseio.com/"></user-surveys>
+    <h3>user-surveys answer</h3>
+    <user-surveys answer folder="marcus7777" location="https://open-elements.firebaseio.com/"></user-surveys>
+    <h3>user-surveys edit-default</h3>
+    <user-surveys edit-default folder="marcus7777" location="https://open-elements.firebaseio.com/"></user-surveys>
+    <h3>user-surveys edit</h3>
+    <user-surveys edit folder="marcus7777" location="https://open-elements.firebaseio.com/"></user-surveys>
+  </body>
+</html>

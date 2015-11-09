@@ -1,0 +1,40 @@
+<link rel="import" href="help-view.html">
+<!--
+`<user-help answer edit edit-default folder="marcus7777"></user-help>` help for users 
+@demo demo.html
+-->
+
+<dom-module id="user-help">
+  <template>
+    <style>
+      paper-dialog  > * {
+        padding: 0 2px;
+      }
+    </style>
+    <help-view answer="[[answer]]" location="[[location]]" edit="{{edit}}" folder="[[helpFolder]]" default-folder="{{helpDefaultFolder}}" edit-default="{{editDefault}}"></help-view>
+    <template is="dom-if" if="{{editDefault}}">
+      <h3>Edit Default Set:</h3>
+      <user-help edit location="[[location]]" filter-by="all" folder="[[defaultFolder]]"></user-help>
+    </template>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "user-help",
+    properties: {
+      folder: String,
+      defaultFolder: {type:String, value:"default"},
+      edit: Boolean,
+      answer: Boolean,
+      editDefault: Boolean,
+      helpFolder: {computed:"gethelpFolder(folder)"},
+      helpDefaultFolder: {computed:"gethelpDefaultFolder(defaultFolder)"}
+    },
+    gethelpFolder: function(folder) {
+      return folder+"/help"
+    },
+    gethelpDefaultFolder: function(defaultFolder) {
+      return defaultFolder+"/help"
+    }
+  });
+</script>

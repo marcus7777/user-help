@@ -1,0 +1,47 @@
+<link rel="import" href="help-item.html">
+<link rel="import" href="../sortable-list/sortable-list.html">
+<!--
+`<help-list help="{{help}}" on-delete-help="deletehelp"></help-list>`
+-->
+<dom-module id="help-list">
+  <template>
+    <template is="dom-if" if="{{edit}}">
+      <sortable-list style="display: inline-block">
+        <template is="dom-repeat" items="{{help}}">
+          <div><help-item edit help="{{item}}"></help-item></div>
+        </template>
+      </sortable-list>
+    </template>
+    <template is="dom-if" if="{{answer}}">
+      <sortable-list style="display: inline-block">
+        <template is="dom-repeat" items="{{help}}" filter="{{filterhelp(filterBy)}}">
+          <div><help-item index="[[index]]" answer="[[answer]]" help="{{item}}"></help-item></div>
+        </template>
+      </sortable-list>
+    </template>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'help-list',
+    properties: {
+      help:{notify:true},
+      filterBy:{type:String,value:"not"}
+    },
+    filterhelp: function(filterBy) {
+      if (filterBy) {
+        // If filterBy is 'all', return a filter
+        if (filterBy === 'all') {
+          return function() {
+            return true
+          }
+        }
+        // Handle 'completed', or its inverse, 'active'
+        var ifNotComplete = !(filterBy === 'completed');
+        return function(item) {
+          return item.isComplete !== ifNotComplete;
+        };
+      }
+    }
+  });
+</script>

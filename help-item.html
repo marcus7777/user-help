@@ -1,0 +1,63 @@
+<link rel="import" href="../show-once/show-once.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<!--
+`<help-item style="display:block" help="{{item}}"></help-item>`
+-->
+<dom-module id="help-item">
+  <template>
+    <template is="dom-if" if="{{!index}}"><!-- if index === 0 --> 
+      <template is="dom-if" if="{{showOnce}}">
+        <show-once>
+          Q: {{help.question}}
+          <paper-button on-tap="yes">{{Yes}}</paper-button>
+          <paper-button on-tap="no">{{No}}</paper-button>
+        </show-once>
+      </template>
+    </template>
+    <template is="dom-if" if="{{edit}}">
+      <paper-input value="{{help.question::change}}" label="Question"></paper-input>
+      <template is="dom-if" if="{{help.answer}}">    
+        answered: {{help.answer}}
+      </template>
+    </template>
+    <template is="dom-if" if="{{answer}}">
+      <paper-material style="background:#fff;padding:20px;margin: 5px;max-width: 200px">
+        Q: [[help.question]]
+        <span style="float:right">
+          <paper-button on-tap="yes">{{Yes}}</paper-button>
+          <paper-button on-tap="no">{{No}}</paper-button>
+        </span>
+      </paper-material>
+    </template>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'help-item',
+    _onDelete: function() {
+      this.fire('delete-help-question', {help: this.help});
+    },
+    yes: function() {
+      this.set("help.answer", this.Yes)
+      this.set("help.isComplete", true)
+    },
+    no: function() {
+      this.set("help.answer", this.No)
+      this.set("help.isComplete", true)
+    },
+    properties: {
+      edit: Boolean,
+      answer: Boolean,
+      No: {value: 'No'},
+      Yes: {value: 'Yes'},
+      help: {notify: true},
+      showOnce: {computed: "getShowOnce(edit, answer)"}
+    },
+    getShowOnce(question, edit, answer) {
+      return (!edit && answer) 
+    }
+  });
+</script>

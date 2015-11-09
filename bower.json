@@ -1,0 +1,14 @@
+{
+  "name": "user-help",
+  "version": "1.0.0",
+  "description": "user-help",
+  "main": "user-help.html",
+  "keywords": [
+    "polymer","web-components"
+  ],
+  "dependencies": {
+    "polymer": "*",
+    "mediator-data":"marcus7777/mediator-data",
+    "paper-material":"PolymerElements/paper-material"
+  }
+}
