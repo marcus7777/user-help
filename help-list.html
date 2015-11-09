@@ -12,8 +12,10 @@
         </template>
       </sortable-list>
     </template>
-    <template is="dom-repeat" items="{{help}}">
-      <div><help-item help="{{item}}"></help-item></div>
+    <template is="dom-if" if="{{!edit}}">
+      <template is="dom-repeat" items="{{help}}">
+        <div><help-item help="{{item}}"></help-item></div>
+      </template>
     </template>
   </template>
 </dom-module>
