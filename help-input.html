@@ -29,7 +29,7 @@
     _add: function() {
       if (this.helpQ) {
         this.fire('add-help', {
-          Q: this.helpQ
+          Q: this.helpQ,
           A: this.helpA
         });
         this.helpQ = null;
