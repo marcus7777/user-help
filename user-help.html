@@ -14,7 +14,7 @@
     <help-view location="[[location]]" folder="[[helpFolder]]" default-folder="{{helpDefaultFolder}}" edit-default="{{editDefault}}"></help-view>
     <template is="dom-if" if="{{editDefault}}">
       <h3>Edit Default Set:</h3>
-      <user-help edit location="[[location]]" filter-by="all" folder="[[defaultFolder]]"></user-help>
+      <user-help edit="true" location="[[location]]" filter-by="all" folder="[[defaultFolder]]"></user-help>
     </template>
   </template>
 </dom-module>
