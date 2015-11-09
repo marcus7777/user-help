@@ -1,6 +1,6 @@
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-button/paper-button.html">
-<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-input/paper-textarea.html">
 <!-- 
 `<help-input on-add-badge="addhelp"></help-input>`
 -->
@@ -8,8 +8,8 @@
   <template>
     <paper-button on-tap="add">Add</paper-button>
     <paper-dialog>
-      <paper-input value="{{helpQ::change}}" label="Question"></paper-input>
-      <paper-input value="{{helpA::change}}" label="Answer"></paper-input>
+      <paper-textarea value="{{helpQ::change}}" label="Question"></paper-textarea>
+      <paper-textarea value="{{helpA::change}}" label="Answer"></paper-textarea>
       <div class="buttons">
         <paper-button dialog-confirm on-tap="_add">Add</paper-button>
         <paper-button dialog-dismiss>Cancel</paper-button>
@@ -33,6 +33,7 @@
           A: this.helpA
         });
         this.helpQ = null;
+        this.helpA = null;
         this.$$('paper-dialog').close();
       }
     },
