@@ -9,6 +9,7 @@
     <paper-button on-tap="add">Add</paper-button>
     <paper-dialog>
       <paper-input value="{{helpQ::change}}" label="Question"></paper-input>
+      <paper-input value="{{helpA::change}}" label="Answer"></paper-input>
       <div class="buttons">
         <paper-button dialog-confirm on-tap="_add">Add</paper-button>
         <paper-button dialog-dismiss>Cancel</paper-button>
@@ -29,6 +30,7 @@
       if (this.helpQ) {
         this.fire('add-help', {
           Q: this.helpQ
+          A: this.helpA
         });
         this.helpQ = null;
         this.$$('paper-dialog').close();
