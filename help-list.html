@@ -7,7 +7,7 @@
   <template>
     <sortable-list style="display: inline-block">
       <template is="dom-repeat" items="{{help}}">
-        <div><help-item edit="[[edit]]" help="{{item}}"></help-item></div>
+        <div><help-item index="[[index]]" edit="[[edit]]" help="{{item}}"></help-item></div>
       </template>
     </sortable-list>
   </template>
