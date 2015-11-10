@@ -11,7 +11,7 @@
         padding: 0 2px;
       }
     </style>
-    <help-view location="[[location]]" folder="[[helpFolder]]" default-folder="{{helpDefaultFolder}}" edit-default="{{editDefault}}"></help-view>
+    <help-view edit="{{edit}}" location="[[location]]" folder="[[helpFolder]]" default-folder="{{helpDefaultFolder}}" edit-default="{{editDefault}}"></help-view>
     <template is="dom-if" if="{{editDefault}}">
       <h3>Edit Default Set:</h3>
       <user-help edit location="[[location]]" folder="[[defaultFolder]]"></user-help>
