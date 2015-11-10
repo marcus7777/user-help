@@ -26,7 +26,7 @@
       this.fire('delete-help-question', {help: this.help});
     },
     properties: {
-      edit: Boolean,
+      edit:{type: Boolean, value: false},
       help: {notify: true}
     }
   });
