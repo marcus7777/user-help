@@ -9,7 +9,7 @@
 <dom-module id="help-view">
   <template>
     <mediator-data id="h" as-array="{{help}}" location="{{location}}" folder="{{folder}}" default-folder="{{defaultFolder}}"></mediator-data>
-    <help-list edit="{{edit}}" edit-default="{{editDefault}}" help="{{help}}" on-delete-help="deletehelpQuestion"></help-list>
+    <help-list edit="{{edit}}" help="{{help}}" on-delete-help="deletehelpQuestion"></help-list>
     <template is="dom-if" if="{{editDefault}}">
       <help-input edit="true" on-add-help="addhelpQuestion"></help-input>
     </template>
@@ -21,7 +21,7 @@
     properties: {
       help: Array,
       edit:{type: Boolean, value: false},
-      editDefault: Boolean
+      editDefault:{type: Boolean, value: false},
     },
     addhelpQuestion: function(e) {
       this.$.h.push({
