@@ -7,9 +7,9 @@
   <template>
     <sortable-list style="display: inline-block">
       <template is="dom-repeat" items="{{help}}">
-      <!-- <paper-material elevation="1" style="padding: 20px; height: 165px;"> -->
+      <paper-material elevation="1" style="padding: 20px; height: 165px; width: 300px;">
         <div><help-item index="[[index]]" edit="{{edit}}" help="{{item}}"></help-item></div>
-      <!-- </paper-material> -->
+      </paper-material>
         
       </template>
     </sortable-list>
