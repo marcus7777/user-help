@@ -11,9 +11,13 @@
       <paper-textarea value="{{help.answer::change}}" label="Answer"></paper-textarea>
     </template>
     <template is="dom-if" if="{{!edit}}">
-      <paper-material style="background:#fff;padding:20px;margin: 5px;max-width: 200px">
-        Q: [[help.question]] <br/>
-        A: <span inner-H-T-M-L="{{help.answer}}"></span>
+      <paper-material style="background:#fff;padding:20px;margin:5px;width:250px">
+        <div id="question" style="font-weight: 500">
+          Q: [[help.question]]
+        </div>
+        <div id-"answer" style="padding-top: 15px;">
+          A: <span inner-H-T-M-L="{{help.answer}}"></span>
+        </div>
       </paper-material>
     </template>
   </template>
