@@ -7,8 +7,10 @@
 <dom-module id="help-item">
   <template>
     <template is="dom-if" if="{{edit}}">
-      <paper-textarea value="{{help.question::change}}" label="Question"></paper-textarea>
-      <paper-textarea value="{{help.answer::change}}" label="Answer"></paper-textarea>
+      <div style="width:100">
+        <paper-textarea value="{{help.question::change}}" label="Question"></paper-textarea>
+        <paper-textarea value="{{help.answer::change}}" label="Answer"></paper-textarea>
+      </div>
     </template>
     <template is="dom-if" if="{{!edit}}">
       <!-- <paper-material style="background:#fff;padding:20px;margin:5px;width:250px"> -->
