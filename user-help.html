@@ -11,13 +11,13 @@
         padding: 0 2px;
       }
     </style>
-    <help-view style="clear:both" edit="{{edit}}" location="[[location]]" folder="[[helpFolder]]" default-folder="{{helpDefaultFolder}}" edit-default="{{editDefault}}"></help-view>
     <template is="dom-if" if="{{header}}">
       <div id="listofUserHeading" style="height: 50px; width: 100%; background-color: grey; padding: 2px 0 20px 20px;">
         <h2 style="color: #FFF; float:left;">Help</h2>
         <iron-icon icon="account-circle" style="color:#FFF;height:40px;width:40px;float:right;margin: 15px 20px 0px 0px"></iron-icon>
       </div>
     </template>
+    <help-view style="clear:both" edit="{{edit}}" location="[[location]]" folder="[[helpFolder]]" default-folder="{{helpDefaultFolder}}" edit-default="{{editDefault}}"></help-view>
     <template is="dom-if" if="{{editDefault}}">
       <user-help header edit location="[[location]]" folder="[[defaultFolder]]"></user-help>
     </template>
