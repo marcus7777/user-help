@@ -10,6 +10,8 @@
       <div style="width:100">
         <paper-textarea value="{{help.question::change}}" label="Question"></paper-textarea>
         <paper-textarea value="{{help.answer::change}}" label="Answer"></paper-textarea>
+        <paper-textarea value="{{help.link::change}}" label="Link"></paper-textarea>
+
       </div>
     </template>
     <template is="dom-if" if="{{!edit}}">
@@ -18,7 +20,10 @@
           Q: [[help.question]]
         </div>
         <div id-"answer" style="padding-top: 30px;">
-          A: <span inner-H-T-M-L="{{help.answer}}"></span>
+          A: <span"{{help.answer}}"></span>
+        </div>
+        <div id-"link" style="padding-top: 30px;">
+          A: <span"{{help.link}}"></span>
         </div>
       <!-- </paper-material> -->
     </template>
