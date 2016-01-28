@@ -11,6 +11,7 @@
     <paper-dialog style="width:300px;" modal>
       <paper-textarea value="{{helpQ::change}}" label="Question"></paper-textarea>
       <paper-textarea value="{{helpA::change}}" label="Answer"></paper-textarea>
+      <paper-textarea value="{{helpL::link}}" label="Link"></paper-textarea>
       <div class="buttons">
         <paper-button dialog-confirm on-tap="_add" style="background: #FF5722;color: #FFF;">Add</paper-button>
         <paper-button dialog-dismiss>Cancel</paper-button>
@@ -32,9 +33,11 @@
         this.fire('add-help', {
           Q: this.helpQ,
           A: this.helpA
+          L: this.helpL
         });
         this.helpQ = null;
         this.helpA = null;
+        this.helpL = null;
         this.$$('paper-dialog').close();
       }
     },

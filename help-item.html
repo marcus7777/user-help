@@ -6,10 +6,20 @@
 -->
 <dom-module id="help-item">
   <template>
+    <style>
+      paper-textarea {
+        height: 100px;
+      }
+      paper-input-container {
+        padding: 8px 10px;
+      }
+    </style>
     <template is="dom-if" if="{{edit}}">
       <div style="width:100">
-        <paper-textarea value="{{help.question::change}}" label="Question"></paper-textarea>
-        <paper-textarea value="{{help.answer::change}}" label="Answer"></paper-textarea>
+        <paper-textarea value="{{help.question::change}}" label="Question" char-counter maxlength="65"></paper-textarea>
+        <paper-textarea value="{{help.answer::change}}" label="Answer" char-counter maxlength="65"></paper-textarea>
+        <paper-textarea value="{{help.link::change}}" label="Link"></paper-textarea>
+
       </div>
     </template>
     <template is="dom-if" if="{{!edit}}">
@@ -17,8 +27,11 @@
         <div id="question" style="font-weight: 500">
           Q: [[help.question]]
         </div>
-        <div id-"answer" style="padding-top: 30px;">
-          A: <span inner-H-T-M-L="{{help.answer}}"></span>
+        <div id-"answer" style="padding-top: 50px;">
+          A: <span"{{help.answer}}"></span>
+        </div>
+        <div id-"link" style="padding-top: 50px;">
+          A: <span"{{help.link}}"></span>
         </div>
       <!-- </paper-material> -->
     </template>
