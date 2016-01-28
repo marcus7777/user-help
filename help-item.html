@@ -19,7 +19,6 @@
         <paper-textarea value="{{help.question::change}}" label="Question" char-counter maxlength="65"></paper-textarea>
         <paper-textarea value="{{help.answer::change}}" label="Answer" char-counter maxlength="65"></paper-textarea>
         <paper-textarea value="{{help.link::change}}" label="Link"></paper-textarea>
-
       </div>
     </template>
     <template is="dom-if" if="{{!edit}}">
@@ -30,9 +29,11 @@
         <div id-"answer" style="padding-top: 50px;">
           A: [[help.answer]]
         </div>
-        <div id-"link" style="padding-top: 50px;">
-          <a href="[[help.link]]" >Link</a>
-        </div>
+        <template is="dom-if" if="[[help.link]]">
+          <div id-"link" style="padding-top: 50px;">
+            <a href="[[help.link]]" >Link</a>
+          </div>
+        </template>
       <!-- </paper-material> -->
     </template>
   </template>
