@@ -28,10 +28,10 @@
           Q: [[help.question]]
         </div>
         <div id-"answer" style="padding-top: 50px;">
-          A: <span"{{help.answer}}"></span>
+          A: [[help.answer]]
         </div>
         <div id-"link" style="padding-top: 50px;">
-          A: <span"{{help.link}}"></span>
+          <a href="[[help.link]]" >Link</a>
         </div>
       <!-- </paper-material> -->
     </template>
@@ -44,7 +44,7 @@
       this.fire('delete-help-question', {help: this.help});
     },
     properties: {
-      edit:{type: Boolean, value: false},
+      edit: {type: Boolean, value: false},
       help: {notify: true}
     }
   });
